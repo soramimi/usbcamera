@@ -21,3 +21,6 @@ FORMS    += MainWindow.ui
 
 win32:INCLUDEPATH += C:\opencv\build\include
 win32:LIBS += -LC:\opencv\build\x86\vc12\lib
+
+unix:LIBS += -lopencv_core -lopencv_highgui
+

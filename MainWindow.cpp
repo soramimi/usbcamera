@@ -3,6 +3,8 @@
 #include <stdint.h>
 #include <QDebug>
 #include <QTimer>
+#include <QFileDialog>
+#include <QClipboard>
 #include "opencv2/opencv.hpp"
 
 #ifdef _WIN32
@@ -137,4 +139,19 @@ void MainWindow::doCapture()
 		ui->widget->setFixedSize(w, h);
 		ui->widget->setImage(image);
 	}
+}
+
+void MainWindow::on_action_file_save_as_triggered()
+{
+	QString path = QFileDialog::getSaveFileName(this, tr("Save as"), QString(), "JPEG files (*.jpg);;PNG files (*.png)");
+	if (path.isEmpty()) return;
+
+	QImage image = ui->widget->getImage();
+	image.save(path);
+}
+
+void MainWindow::on_action_edit_copy_triggered()
+{
+	QImage image = ui->widget->getImage();
+	qApp->clipboard()->setImage(image);
 }

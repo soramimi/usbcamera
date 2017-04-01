@@ -21,6 +21,10 @@ private slots:
 
 	void doCapture();
 
+	void on_action_file_save_as_triggered();
+
+	void on_action_edit_copy_triggered();
+
 private:
 	Ui::MainWindow *ui;
 };

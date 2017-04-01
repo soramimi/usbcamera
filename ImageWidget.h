@@ -14,6 +14,11 @@ public:
 
 	void setImage(QImage const &image);
 
+	QImage getImage() const
+	{
+		return image;
+	}
+
 signals:
 
 public slots:

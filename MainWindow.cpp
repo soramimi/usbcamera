@@ -60,6 +60,7 @@ public:
 };
 
 // solution 2: use CvCapture
+#if 0
 class Capture2 {
 private:
 	CvCapture *cap = nullptr;
@@ -101,6 +102,7 @@ public:
 		return QImage();
 	}
 };
+#endif
 
 struct MainWindow::Private {
 	Capture1 cap;

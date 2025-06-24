@@ -8,7 +8,7 @@ class ImageWidget : public QWidget
 {
 	Q_OBJECT
 private:
-	QImage image;
+	QImage image_;
 public:
 	explicit ImageWidget(QWidget *parent = 0);
 
@@ -16,7 +16,7 @@ public:
 
 	QImage getImage() const
 	{
-		return image;
+		return image_;
 	}
 
 signals:

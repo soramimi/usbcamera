@@ -22,7 +22,10 @@ public:
 	void open()
 	{
 		close();
-		cap.open(1);
+		if (cap.open(1)) {
+			cap.set(cv::CAP_PROP_FRAME_WIDTH, 640);
+			cap.set(cv::CAP_PROP_FRAME_HEIGHT, 360);
+		}
 	}
 	void close()
 	{

@@ -9,6 +9,7 @@ class ImageWidget : public QWidget
 	Q_OBJECT
 private:
 	QImage image_;
+	QImage image_scaled_;
 public:
 	explicit ImageWidget(QWidget *parent = 0);
 

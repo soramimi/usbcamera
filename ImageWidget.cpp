@@ -11,6 +11,7 @@ ImageWidget::ImageWidget(QWidget *parent)
 void ImageWidget::setImage(const QImage &image)
 {
 	image_ = image;
+	image_scaled_ = {};
 	update();
 }
 
@@ -28,10 +29,12 @@ void ImageWidget::paintEvent(QPaintEvent *)
 		w = r.height() * w / h;
 		h = r.height();
 	}
-	qDebug() << w << h;
+	if (image_scaled_.width() != w || image_scaled_.height() != h) {
+		image_scaled_ = image_.scaled(w, h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+	}
 	int x = (r.width() - w) / 2;
 	int y = (r.height() - h) / 2;
 	QPainter pr(this);
-	pr.drawImage(x, y, image_.scaled(w, h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+	pr.drawImage(x, y, image_scaled_);
 
 }
